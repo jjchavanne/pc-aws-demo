@@ -20,13 +20,23 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "bucket" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "aws:kms"
     }
   }
 }
 
 resource "aws_s3_bucket" "bucket_log_bucket" {
   bucket = "bucket-log-bucket"
+  tags = {
+    git_commit           = "80d6e6f0212c615a9b88157f6c1753a91dcd89a4"
+    git_file             = "s3.tf"
+    git_last_modified_at = "2022-05-23 18:05:06"
+    git_last_modified_by = "jchavanne@paloaltonetworks.com"
+    git_modifiers        = "jchavanne"
+    git_org              = "jjchavanne"
+    git_repo             = "pc-aws-demo"
+    yor_trace            = "4f31a202-6e63-442c-8ed3-1e88d196c3b4"
+  }
 }
 
 resource "aws_s3_bucket_logging" "bucket" {
